@@ -52,7 +52,7 @@ jobs:
 
   build-backend:
     docker:
-      - image: img/node:13.8.0
+      - image: cimg/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -69,7 +69,7 @@ jobs:
 
    test-frontend:
      docker:
-       - image: img/node:13.8.0
+       - image: cimg/node:13.8.0
      steps:
        - checkout
       - restore_cache:
@@ -84,7 +84,7 @@ jobs:
                 
    test-backend:
      docker:
-       - image: img/node:13.8.0
+       - image: cimg/node:13.8.0
      steps:
      - checkout
       - restore_cache:

@@ -52,7 +52,7 @@ jobs:
 
   build-backend:
     docker:
-      - image: cimg/node:13.8.0
+      - image: img/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -67,21 +67,37 @@ jobs:
           paths: [backend/node_modules]
           key: backend-deps
 
-#   test-frontend:
-#     docker:
-#       # Docker image here
-#     steps:
-#       # Checkout code from git
-#       # Restore from cache
-#       # Your job code here
+   test-frontend:
+     docker:
+       - image: img/node:13.8.0
+     steps:
+       - checkout
+      - restore_cache:
+          keys: [frontend-deps]
+      - run:
+          name: front-end unite test
+          command: |
+            cd frontend 
+            npm install
+            npm test
+
                 
-#   test-backend:
-#     docker:
-#       # Docker image here
-#     steps:
-#       # Checkout code from git
-#       # Restore from cache
-#       # Your job code here
+   test-backend:
+     docker:
+       - image: img/node:13.8.0
+     steps:
+     - checkout
+      - restore_cache:
+          keys: [backend-deps]
+      - run:
+          name: back-end unite test
+          command: |
+            cd backend
+            npm install
+            npm test
+      - save_cache:
+          paths: [backend/node_modules]
+          key: backend-deps
             
 #   scan-frontend:
 #     docker:
@@ -270,10 +286,10 @@ workflows:
     jobs:
       - build-frontend
       - build-backend
-      # - test-frontend:
-      #     requires: [build-frontend]
-      # - test-backend:
-      #     requires: [build-backend]
+       - test-frontend:
+           requires: [build-frontend]
+       - test-backend:
+           requires: [build-backend]
       # - scan-backend:
       #     requires: [build-backend]
       # - scan-frontend:

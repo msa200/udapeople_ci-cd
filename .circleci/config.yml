@@ -61,7 +61,7 @@ commands:
             #Logic for reverting the database state
             if (( $SUCCESS == 1 ));
             then
-              cd ~/project/backend
+              cd ~/projectbackend
               npm install
               npm run migration:revert
             fi

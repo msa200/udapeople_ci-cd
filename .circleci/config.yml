@@ -129,13 +129,12 @@ jobs:
             npm audit fix --force --audit-level=critical
             npm audit fix --force --audit-level=critical
             npm audit --audit-level=critical
-#   deploy-infrastructure:
-#     docker:
-#       # Docker image here that supports AWS CLI
+         deploy-infrastructure#     docker:
+#         Docker image here that supports AWS CLI
 #     steps:
-#       # Checkout code from git
+#        # Checkout code from git
 #       - run:
-#           name: Ensure back-end infrastructure exists
+#          e back-end infrastructure exists
 #           command: |
 #             aws cloudformation deploy \
 #               --template-file .circleci/files/backend.yml \

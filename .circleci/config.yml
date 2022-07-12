@@ -40,7 +40,7 @@ commands:
     steps:
       - run:
           name: Destroy environments
-          when: on_fail 
+          when: on_fail
           command: |
             aws cloudformation delete-stack --stack-name udapeople-backend-<< parameters.Workflow_ID >>
             aws s3 rm s3://udappeople-<<parameters.Workflow_ID>> --recursive

@@ -1,2 +1,3 @@
-S3 Bucket : http://udapeople-612bb5f.s3-website-us-east-1.amazonaws.com/#/employees
-GitHub Link: https://github.com/msa200/udapeople_ci-cd/tree/master
+Public Url to GitHub repository: https://github.com/msa200/udapeople_ci-cd
+Public URL for your S3 Bucket: http://udapeople-6a2935c.s3-website-us-east-1.amazonaws.com
+Cloudfront: http://d21q6fw8ov3rux.cloudfront.net/
